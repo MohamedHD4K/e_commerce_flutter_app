@@ -6,6 +6,7 @@ class Input extends StatefulWidget {
       this.hint = "",
       this.isPassword = false,
       this.isEmail = false,
+      required this.prefixIcon,
       this.controller})
       : super(key: key);
 
@@ -13,6 +14,7 @@ class Input extends StatefulWidget {
   final bool isPassword;
   final bool isEmail;
   final TextEditingController? controller;
+  final Icon prefixIcon;
 
   @override
   _InputState createState() => _InputState();
@@ -54,6 +56,7 @@ class _InputState extends State<Input> {
                 )
               : null,
           hintText: widget.hint,
+          prefixIcon: widget.prefixIcon ,
           focusedBorder: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey),
           ),

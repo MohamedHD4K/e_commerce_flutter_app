@@ -1,38 +1,37 @@
 import 'package:e_commerce_flutter_app/widgets/constants/colors.dart';
 import 'package:e_commerce_flutter_app/widgets/shared/customButton.dart';
 import 'package:e_commerce_flutter_app/widgets/shared/customInput.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
-class Signup extends StatelessWidget {
-  const Signup({Key? key}) : super(key: key);
+class Login extends StatelessWidget {
+  const Login({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return StatefulSignup();
+    return StatefulLogin();
   }
 }
 
-class StatefulSignup extends StatefulWidget {
-  const StatefulSignup({Key? key}) : super(key: key);
+class StatefulLogin extends StatefulWidget {
+  const StatefulLogin({Key? key}) : super(key: key);
 
   @override
-  _SignupState createState() => _SignupState();
+  _LoginState createState() => _LoginState();
 }
 
-class _SignupState extends State<StatefulSignup> {
+class _LoginState extends State<StatefulLogin> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
 
   void _submitForm() {
     if (_formKey.currentState!.validate()) {
       final data = {
         "username": _usernameController.text,
         "password": _passwordController.text,
-        "email": _emailController.text,
       };
+      Navigator.pushNamed(context, "/signup");
       print(data);
     }
   }
@@ -43,7 +42,7 @@ class _SignupState extends State<StatefulSignup> {
       appBar: AppBar(
         backgroundColor: appBarGreen,
         title: Text(
-          "Sign up",
+          "Log in",
           style: TextStyle(color: Colors.white),
         ),
       ),
@@ -52,41 +51,41 @@ class _SignupState extends State<StatefulSignup> {
         child: Form(
           key: _formKey,
           child: Column(
-            spacing: 10,
+            spacing: 5,
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Input(
-                hint: "Enter your Username",
-                controller: _usernameController,
-                prefixIcon: Icon(Icons.person),
-              ),
-              Input(
-                isEmail: true,
-                hint: "Enter your Email",
-                controller: _emailController,
-                prefixIcon: Icon(Icons.email),
-              ),
-              Input(
-                isPassword: true,
-                hint: "Enter your Password",
-                controller: _passwordController,
-                prefixIcon: Icon(Icons.password),
+              Column(
+                spacing: 10,
+                children: [
+                  Input(
+                    hint: "Enter your Username",
+                    controller: _usernameController,
+                    prefixIcon: Icon(Icons.email),
+                  ),
+                  Input(
+                    isPassword: true,
+                    hint: "Enter your Password",
+                    controller: _passwordController,
+                    prefixIcon: Icon(Icons.password),
+                  ),
+                ],
               ),
               TextButton(onPressed: null, child: Text("Forget your password?")),
               CustomButton(
                 onPressed: _submitForm,
-                child: Text("Register", style: TextStyle(fontSize: 15)),
+                child: Text("Log in", style: TextStyle(fontSize: 15)),
               ),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text("Don't have an account?"),
+                    Text("Already have an account?"),
                     TextButton(
-                        onPressed: () => Navigator.pushNamed(context, "/login"),
+                        onPressed: () =>
+                            Navigator.pushNamed(context, "/signup"),
                         child: Text(
-                          "Log in",
+                          "Sign up",
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ))
                   ]),

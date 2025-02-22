@@ -1,6 +1,10 @@
+import 'package:e_commerce_flutter_app/pages/cart.dart';
+import 'package:e_commerce_flutter_app/pages/favorites.dart';
 import 'package:e_commerce_flutter_app/pages/home.dart';
-import 'package:e_commerce_flutter_app/pages/signin.dart';
+import 'package:e_commerce_flutter_app/pages/login.dart';
+import 'package:e_commerce_flutter_app/pages/profile.dart';
 import 'package:e_commerce_flutter_app/pages/signup.dart';
+import 'package:e_commerce_flutter_app/pages/userUpdate.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -21,6 +25,10 @@ class MyApp extends StatelessWidget {
         '/': (context) => const Home(),
         '/login': (context) => const Login(),
         '/signup': (context) => const Signup(),
+        '/cart': (context) => const Cart(),
+        '/update': (context) => const UserUpdate(),
+        '/profile': (context) => const Profile(),
+        '/favorites': (context) => const Favorites(),
       },
     );
   }

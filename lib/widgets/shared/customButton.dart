@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:e_commerce_flutter_app/widgets/constants/colors.dart';
 
-class Button extends StatelessWidget {
-  const Button({Key? key, required this.child, required this.onPressed})
+class CustomButton extends StatelessWidget {
+  const CustomButton(
+      {Key? key,
+      required this.child,
+      required this.onPressed,
+      this.color = btnGreen})
       : super(key: key);
 
   final Widget child;
   final VoidCallback onPressed;
+  final Color color;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +20,7 @@ class Button extends StatelessWidget {
       child: ElevatedButton(
           onPressed: onPressed,
           style: ElevatedButton.styleFrom(
-              backgroundColor: btnGreen,
+              backgroundColor: color,
               foregroundColor: Colors.white,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(3))),

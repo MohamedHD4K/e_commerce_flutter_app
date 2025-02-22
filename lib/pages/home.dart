@@ -1,6 +1,5 @@
 import 'package:e_commerce_flutter_app/widgets/constants/colors.dart';
-import 'package:e_commerce_flutter_app/widgets/shared/button.dart';
-import 'package:e_commerce_flutter_app/widgets/shared/input.dart';
+import 'package:e_commerce_flutter_app/widgets/shared/product.dart';
 import 'package:flutter/material.dart';
 
 class Home extends StatelessWidget {
@@ -20,23 +19,6 @@ class StatefulHome extends StatefulWidget {
 }
 
 class _HomeState extends State<StatefulHome> {
-
-  final _formKey = GlobalKey<FormState>();
-  final TextEditingController _usernameController = TextEditingController();
-  final TextEditingController _passwordController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-
-  void _submitForm() {
-    if (_formKey.currentState!.validate()) {
-      final data = {
-        "username": _usernameController.text,
-        "password": _passwordController.text,
-        "email": _emailController.text,
-      };
-      print(data);
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -49,6 +31,14 @@ class _HomeState extends State<StatefulHome> {
         actions: [
           IconButton(
               onPressed: () {
+                Navigator.pushNamed(context, '/cart');
+              },
+              icon: Icon(
+                Icons.shopping_cart_outlined,
+                color: Colors.white,
+              )),
+          IconButton(
+              onPressed: () {
                 Navigator.pushNamed(context, '/login');
               },
               icon: Icon(
@@ -57,7 +47,7 @@ class _HomeState extends State<StatefulHome> {
               )),
           IconButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/signup');
+                Navigator.pushNamed(context, '/profile');
               },
               icon: Icon(
                 Icons.person,
@@ -67,9 +57,61 @@ class _HomeState extends State<StatefulHome> {
       ),
       body: Container(
         padding: EdgeInsets.all(10),
-        child: Form(
-          key: _formKey,
-          child: Column(),
+        child: SingleChildScrollView(
+          child: Wrap(
+            spacing: 8,
+            runSpacing: 8,
+            children: [
+              Product(
+                about: "The intutvie and intellegent WH-100M4 headphone more",
+                title: "Macbook Air M2",
+                price: 30,
+                image: "assets/images/boy1.png",
+              ),
+              Product(
+                about: "The intutvie and intellegent WH-100M4 headphone more",
+                title: "Macbook Air M2",
+                price: 30,
+                image: "assets/images/1.png",
+              ),
+              Product(
+                about: "The intutvie and intellegent WH-100M4 headphone more",
+                title: "Macbook Air M2",
+                price: 30,
+                image: "assets/images/boy2.png",
+              ),
+              Product(
+                about: "The intutvie and intellegent WH-100M4 headphone more",
+                title: "Macbook Air M2",
+                price: 30,
+                image: "assets/images/boy2.png",
+              ),
+              Product(
+                about: "The intutvie and intellegent WH-100M4 headphone more",
+                title: "Macbook Air M2",
+                price: 30,
+                image: "assets/images/boy1.png",
+              ),
+              Product(
+                about: "The intutvie and intellegent WH-100M4 headphone more",
+                title: "Macbook Air M2",
+                price: 30,
+                image: "assets/images/girl3.png",
+              ),
+              Product(
+                about: "The intutvie and intellegent WH-100M4 headphone more",
+                title: "Macbook Air M2",
+                price: 30,
+                image: "assets/images/girl2.png",
+              ),
+              Product(
+                about: "The intutvie and intellegent WH-100M4 headphone more",
+                title: "Macbook Air M2",
+                price: 30,
+                image: "assets/images/1.png",
+              ),
+            ],
+          ),
         ),
       ),
     );
