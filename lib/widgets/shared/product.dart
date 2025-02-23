@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class Product extends StatelessWidget {
   const Product(
       {Key? key,
-      required this.about,
+      required this.description,
       required this.image,
       required this.price,
       required this.title})
@@ -13,7 +13,7 @@ class Product extends StatelessWidget {
 
   final String image;
   final String title;
-  final String about;
+  final String description;
   final int price;
 
   @override
@@ -70,7 +70,7 @@ class Product extends StatelessWidget {
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold)),
                     Text(
-                      about,
+                      description,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(

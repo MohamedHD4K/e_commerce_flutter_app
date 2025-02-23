@@ -1,3 +1,4 @@
+import 'package:e_commerce_flutter_app/data/data.dart';
 import 'package:e_commerce_flutter_app/widgets/constants/colors.dart';
 import 'package:e_commerce_flutter_app/widgets/shared/product.dart';
 import 'package:flutter/material.dart';
@@ -61,56 +62,14 @@ class _HomeState extends State<StatefulHome> {
           child: Wrap(
             spacing: 8,
             runSpacing: 8,
-            children: [
-              Product(
-                about: "The intutvie and intellegent WH-100M4 headphone more",
-                title: "Macbook Air M2",
-                price: 30,
-                image: "assets/images/boy1.png",
-              ),
-              Product(
-                about: "The intutvie and intellegent WH-100M4 headphone more",
-                title: "Macbook Air M2",
-                price: 30,
-                image: "assets/images/1.png",
-              ),
-              Product(
-                about: "The intutvie and intellegent WH-100M4 headphone more",
-                title: "Macbook Air M2",
-                price: 30,
-                image: "assets/images/boy2.png",
-              ),
-              Product(
-                about: "The intutvie and intellegent WH-100M4 headphone more",
-                title: "Macbook Air M2",
-                price: 30,
-                image: "assets/images/boy2.png",
-              ),
-              Product(
-                about: "The intutvie and intellegent WH-100M4 headphone more",
-                title: "Macbook Air M2",
-                price: 30,
-                image: "assets/images/boy1.png",
-              ),
-              Product(
-                about: "The intutvie and intellegent WH-100M4 headphone more",
-                title: "Macbook Air M2",
-                price: 30,
-                image: "assets/images/girl3.png",
-              ),
-              Product(
-                about: "The intutvie and intellegent WH-100M4 headphone more",
-                title: "Macbook Air M2",
-                price: 30,
-                image: "assets/images/girl2.png",
-              ),
-              Product(
-                about: "The intutvie and intellegent WH-100M4 headphone more",
-                title: "Macbook Air M2",
-                price: 30,
-                image: "assets/images/1.png",
-              ),
-            ],
+            children: (products).map((product) {
+              return Product(
+                description: product["description"] ?? "",
+                title: product["title"] ?? "",
+                price: product["price"] ?? "",
+                image: product["image"] ?? "",
+              );
+            }).toList(),
           ),
         ),
       ),

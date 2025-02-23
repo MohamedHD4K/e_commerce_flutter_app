@@ -1,5 +1,6 @@
 import 'package:e_commerce_flutter_app/widgets/constants/colors.dart';
 import 'package:e_commerce_flutter_app/widgets/shared/inCartProduct.dart';
+import 'package:e_commerce_flutter_app/data/data.dart';
 import 'package:flutter/material.dart';
 
 class Cart extends StatelessWidget {
@@ -16,26 +17,13 @@ class Cart extends StatelessWidget {
         ),
       ),
       body: Column(
-        children: [
-          InCartProduct(
-            description: "The intutvie and Macbook aa M2",
-            title: "Macbook aa M2 Macbook aa M2",
-            image: "assets/images/1.png",
-            price: 10,
-          ),
-          InCartProduct(
-            description: "The 123 and",
-            title: "Macbook Air M2",
-            image: "assets/images/boy1.png",
-            price: 30,
-          ),
-          InCartProduct(
-            description: "The dasd and",
-            title: "Macbook Air M2",
-            image: "assets/images/girl1.png",
-            price: 20,
-          ),
-        ],
+        children: inCartProduct.map((product) {
+          return InCartProduct(
+              description: product["description"] ?? "",
+              title: product["title"] ?? "",
+              image: product["image"] ?? "",
+              price: product["price"] ?? "");
+        }).toList(),
       ),
     );
   }
