@@ -4,34 +4,25 @@ import 'package:e_commerce_flutter_app/widgets/shared/customInput.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return StatefulLogin();
-  }
-}
-
-class StatefulLogin extends StatefulWidget {
-  const StatefulLogin({Key? key}) : super(key: key);
 
   @override
   _LoginState createState() => _LoginState();
 }
 
-class _LoginState extends State<StatefulLogin> {
+class _LoginState extends State<Login> {
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
 
-  void _submitForm() {
+  void _submitForm() async {
     if (_formKey.currentState!.validate()) {
       final data = {
         "username": _usernameController.text,
         "password": _passwordController.text,
       };
-      Navigator.pushNamed(context, "/signup");
+
       print(data);
     }
   }
@@ -40,10 +31,14 @@ class _LoginState extends State<StatefulLogin> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: appBarGreen,
-        title: Text(
-          "Log in",
-          style: TextStyle(color: Colors.white),
+       title: Center(
+          child: Text(
+            "Log in",
+            style: TextStyle(
+                fontFamily: "Poppins",
+                fontSize: 22,
+                fontWeight: FontWeight.bold),
+          ),
         ),
       ),
       body: Container(
@@ -83,7 +78,7 @@ class _LoginState extends State<StatefulLogin> {
                     Text("Already have an account?"),
                     TextButton(
                         onPressed: () =>
-                            Navigator.pushNamed(context, "/signup"),
+                            Navigator.pushReplacementNamed(context, "/signup"),
                         child: Text(
                           "Sign up",
                           style: TextStyle(fontWeight: FontWeight.bold),

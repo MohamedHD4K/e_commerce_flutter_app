@@ -1,6 +1,6 @@
 import 'package:e_commerce_flutter_app/data/data.dart';
-import 'package:e_commerce_flutter_app/widgets/constants/colors.dart';
 import 'package:e_commerce_flutter_app/widgets/customs/myDropDown.dart';
+import 'package:e_commerce_flutter_app/widgets/shared/footer.dart';
 import 'package:e_commerce_flutter_app/widgets/shared/showButton.dart';
 import 'package:flutter/material.dart';
 
@@ -39,12 +39,17 @@ class _ProfileState extends State<StateProfile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: appBarGreen,
-        title: Text(
-          "Profile",
-          style: TextStyle(color: Colors.white),
+        title: Center(
+          child: Text(
+            "Profile",
+            style: TextStyle(
+                fontFamily: "Poppins",
+                fontSize: 22,
+                fontWeight: FontWeight.bold),
+          ),
         ),
       ),
+      bottomNavigationBar: Footer(),
       body: Container(
         width: double.infinity,
         padding: EdgeInsets.all(10),
@@ -79,12 +84,12 @@ class _ProfileState extends State<StateProfile> {
                   ShowButton(
                       text: "Update user data",
                       icon: Icons.edit,
-                      onPressed: () =>
-                          Navigator.pushNamed(context, "/favorites")),
+                      onPressed: () => Navigator.pushNamed(context, "/update")),
                   ShowButton(
                       text: "Favorites",
                       icon: Icons.favorite,
-                      onPressed: () => Navigator.pushNamed(context, "/update"))
+                      onPressed: () =>
+                          Navigator.pushNamed(context, "/favorites"))
                 ],
               ),
             )

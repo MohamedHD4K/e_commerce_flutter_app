@@ -1,4 +1,4 @@
-import 'package:e_commerce_flutter_app/widgets/constants/colors.dart';
+import 'package:e_commerce_flutter_app/widgets/shared/footer.dart';
 import 'package:e_commerce_flutter_app/widgets/shared/inCartProduct.dart';
 import 'package:flutter/material.dart';
 
@@ -9,12 +9,17 @@ class Favorites extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: appBarGreen,
-        title: Text(
-          "Cart",
-          style: TextStyle(color: Colors.white),
+       title: Center(
+          child: Text(
+            "Favorites",
+            style: TextStyle(
+                fontFamily: "Poppins",
+                fontSize: 22,
+                fontWeight: FontWeight.bold),
+          ),
         ),
       ),
+      bottomNavigationBar: Footer(),
       body: Column(
         children: [
           InCartProduct(

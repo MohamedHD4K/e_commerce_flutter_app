@@ -1,4 +1,3 @@
-import 'package:e_commerce_flutter_app/widgets/constants/colors.dart';
 import 'package:e_commerce_flutter_app/widgets/shared/customButton.dart';
 import 'package:e_commerce_flutter_app/widgets/shared/customInput.dart';
 import 'package:flutter/material.dart';
@@ -43,11 +42,15 @@ class _UserUpdateState extends State<StateUserUpdate> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: appBarGreen,
-          title: Text(
-            "Update Profile",
-            style: TextStyle(color: Colors.white),
+          title: Center(
+          child: Text(
+            "Edit Profile",
+            style: TextStyle(
+                fontFamily: "Poppins",
+                fontSize: 22,
+                fontWeight: FontWeight.bold),
           ),
+        ),
         ),
         body: SingleChildScrollView(
           child: Container(

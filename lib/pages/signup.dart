@@ -41,124 +41,144 @@ class _SignupState extends State<StatefulSignup> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: appBarGreen,
-        title: Text(
-          "Sign up",
-          style: TextStyle(color: Colors.white),
+        title: Center(
+          child: Text(
+            "Sign up",
+            style: TextStyle(
+                fontFamily: "Poppins",
+                fontSize: 22,
+                fontWeight: FontWeight.bold),
+          ),
         ),
       ),
-      body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 40),
-        child: Form(
-          key: _formKey,
+      body: SingleChildScrollView(
+        child: Container(
+          height: 800,
+            padding: EdgeInsets.symmetric(horizontal: 40),
           child: Column(
-            spacing: 10,
             mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Input(
-                hint: "Enter your Username",
-                controller: _usernameController,
-                prefixIcon: Icon(Icons.person),
-              ),
-              Input(
-                isEmail: true,
-                hint: "Enter your Email",
-                controller: _emailController,
-                prefixIcon: Icon(Icons.email),
-              ),
-              Input(
-                isPassword: true,
-                hint: "Enter your Password",
-                controller: _passwordController,
-                prefixIcon: Icon(Icons.password),
-              ),
-              TextButton(onPressed: null, child: Text("Forget your password?")),
-              CustomButton(
-                onPressed: _submitForm,
-                child: Text("Register", style: TextStyle(fontSize: 15)),
-              ),
-              Row(
+              Form(
+                key: _formKey,
+                child: Column(
+                  spacing: 10,
                   mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Don't have an account?"),
+                    Input(
+                      hint: "Enter your Username",
+                      controller: _usernameController,
+                      prefixIcon: Icon(Icons.person),
+                    ),
+                    Input(
+                      isEmail: true,
+                      hint: "Enter your Email",
+                      controller: _emailController,
+                      prefixIcon: Icon(Icons.email),
+                    ),
+                    Input(
+                      isPassword: true,
+                      hint: "Enter your Password",
+                      controller: _passwordController,
+                      prefixIcon: Icon(Icons.password),
+                    ),
                     TextButton(
-                        onPressed: () => Navigator.pushNamed(context, "/login"),
-                        child: Text(
-                          "Log in",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ))
-                  ]),
-              Row(
-                children: [
-                  Expanded(
-                      child: Divider(
-                    color: Colors.grey,
-                    thickness: 1,
-                  )),
-                  Container(
-                      padding: EdgeInsets.symmetric(horizontal: 10),
-                      child: Text("or")),
-                  Expanded(
-                      child: Divider(
-                    color: Colors.grey,
-                    thickness: 1,
-                  )),
-                ],
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    OutlinedButton(
                         onPressed: null,
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 18),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50))),
-                        child: SvgPicture.asset(
-                          "assets/images/facebook.svg",
-                          color: btnGreen,
-                          width: 30,
+                        child: Text("Forget your password?")),
+                    CustomButton(
+                      onPressed: _submitForm,
+                      child: Text("Register", style: TextStyle(fontSize: 15)),
+                    ),
+                    Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text("Don't have an account?"),
+                          TextButton(
+                              onPressed: () => Navigator.pushReplacementNamed(
+                                  context, "/login"),
+                              child: Text(
+                                "Log in",
+                                style: TextStyle(fontWeight: FontWeight.bold),
+                              ))
+                        ]),
+                    Row(
+                      children: [
+                        Expanded(
+                            child: Divider(
+                          color: Colors.grey,
+                          thickness: 1,
                         )),
-                    OutlinedButton(
-                        onPressed: null,
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 18),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50))),
-                        child: SvgPicture.asset(
-                          "assets/images/linkedin.svg",
-                          color: btnGreen,
-                          width: 30,
+                        Container(
+                            padding: EdgeInsets.symmetric(horizontal: 10),
+                            child: Text("or")),
+                        Expanded(
+                            child: Divider(
+                          color: Colors.grey,
+                          thickness: 1,
                         )),
-                    OutlinedButton(
-                        onPressed: null,
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 18),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50))),
-                        child: SvgPicture.asset(
-                          "assets/images/google.svg",
-                          color: btnGreen,
-                          width: 30,
-                        )),
-                    OutlinedButton(
-                        onPressed: null,
-                        style: ElevatedButton.styleFrom(
-                            padding: EdgeInsets.symmetric(vertical: 18),
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(50))),
-                        child: SvgPicture.asset(
-                          "assets/images/instagram.svg",
-                          color: btnGreen,
-                          width: 30,
-                        )),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          OutlinedButton(
+                              onPressed: null,
+                              style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(vertical: 18),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(50))),
+                              child: SvgPicture.asset(
+                                "assets/images/facebook.svg",
+                                color: btnGreen,
+                                width: 30,
+                              )),
+                          OutlinedButton(
+                              onPressed: null,
+                              style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(vertical: 18),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(50))),
+                              child: SvgPicture.asset(
+                                "assets/images/linkedin.svg",
+                                color: btnGreen,
+                                width: 30,
+                              )),
+                          OutlinedButton(
+                              onPressed: null,
+                              style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(vertical: 18),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(50))),
+                              child: SvgPicture.asset(
+                                "assets/images/google.svg",
+                                color: btnGreen,
+                                width: 30,
+                              )),
+                          OutlinedButton(
+                              onPressed: null,
+                              style: ElevatedButton.styleFrom(
+                                  padding: EdgeInsets.symmetric(vertical: 18),
+                                  shape: RoundedRectangleBorder(
+                                      borderRadius:
+                                          BorderRadius.circular(50))),
+                              child: SvgPicture.asset(
+                                "assets/images/instagram.svg",
+                                color: btnGreen,
+                                width: 30,
+                              )),
+                        ],
+                      ),
+                    )
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
